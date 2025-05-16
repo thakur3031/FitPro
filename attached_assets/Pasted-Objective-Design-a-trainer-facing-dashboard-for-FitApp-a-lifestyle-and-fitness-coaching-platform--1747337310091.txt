@@ -1,0 +1,100 @@
+Objective:
+Design a trainer-facing dashboard for FitApp, a lifestyle and fitness coaching platform. The interface should empower gym trainers to efficiently manage clients, create and share plans, personalize their branding, and oversee business operations — all while minimizing admin overhead and maximizing clarity.
+
+🧩 Core Design Requirements:
+🧭 Primary Navigation Panel (Left Sidebar)
+Collapsible and persistent
+
+Quick access icons for:
+
+Smart Alerts (Home)
+
+Client List & Filters
+
+Nutrition Plan Generator
+
+Fitness Plan Generator
+
+Plan Library
+
+Notes & Logs
+
+Branding / ToS / Marketing
+
+Payments
+
+🪟 Central Canvas (Main Panel)
+Displays "⚡ Your Next Recommended Action" (e.g., “4 clients need follow-up”)
+
+Contextual content:
+
+Active clients
+
+Alerts
+
+Plan-building workflows
+
+🧱 Right Sliding Panels / Modular Cards
+Opens upon selecting a client or task
+
+Includes:
+
+Client summary, goals, metrics
+
+AI-generated messages or plans
+
+Plan previews & history
+
+Notes & logs
+
+Message composer
+
+💡 Functional Flows to Illustrate:
+1. Smart Alerts & Client Follow-Up
+Highlight clients needing attention
+
+Show pre-filled AI messages with red/green status indicators
+
+“Approve & Send” buttons with feedback (“Message sent!”)
+
+2. Plan Creation
+Choose between AI-generated or library-based plans
+
+Attach resources (YouTube links, PDFs)
+
+Edit & approve flow with confirmation tooltip
+
+3. Client Management
+Add/Invite clients (bulk or individual)
+
+Assign goals, preferences, and reassign trainers
+
+Branded onboarding email view
+
+4. Trainer Branding Panel
+Logo upload, color theme customization
+
+Set message tone (e.g., professional vs. friendly)
+
+Manage platform-wide ToS
+
+5. Payments & Business Dashboard
+Revenue by client
+
+Invoice generation
+
+Stripe integration
+
+Alerts for failed payments
+
+🧠 UX Principles to Follow:
+Focus on One Thing: Prioritize simplicity and key actions.
+
+Frictionless Flow: Minimize clicks, contextual interactions.
+
+Control & Customization: Flexible yet structured.
+
+Consistency: Repeatable UI elements (cards, filters, panels).
+
+Delight with Clarity: Clear micro-feedback and intuitive layouts.
+
