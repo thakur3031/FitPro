@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import * as Icons from "@/lib/icons";
 import { Client } from "@shared/schema";
+import { useLocation } from "wouter";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 interface ClientCardProps {
   client: Client;
@@ -11,8 +13,17 @@ interface ClientCardProps {
 }
 
 const ClientCard: React.FC<ClientCardProps> = ({ client, onEdit, onViewProfile }) => {
+  const [, navigate] = useLocation();
+  // Dummy progress data for the line graph
+  const progressData = [
+    { week: "W1", progress: 10 },
+    { week: "W2", progress: 30 },
+    { week: "W3", progress: 50 },
+    { week: "W4", progress: 70 },
+    { week: "W5", progress: 90 },
+  ];
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-visible group relative">
       <CardContent className="p-0">
         <div className="p-6">
           <div className="flex items-start gap-4">
@@ -56,26 +67,51 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, onEdit, onViewProfile }
           </div>
         </div>
       </CardContent>
-      
-      <CardFooter className="flex justify-between gap-2 p-4 bg-white dark:bg-slate-800">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          className="flex-1"
-          onClick={() => onEdit(client)}
-        >
-          <Icons.PencilIcon className="mr-2 h-4 w-4" />
-          Edit
-        </Button>
-        <Button 
-          size="sm" 
-          className="flex-1"
-          onClick={() => onViewProfile(client)}
-        >
-          <Icons.UserIcon className="mr-2 h-4 w-4" />
-          Profile
-        </Button>
-      </CardFooter>
+
+      {/* Dropdown below card */}
+      <div className="absolute left-0 right-0 top-full mt-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-4 mx-2">
+          <div className="h-32 w-full mb-4">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={progressData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <XAxis dataKey="week" hide />
+                <YAxis domain={[0, 100]} hide />
+                <Tooltip />
+                <Line type="monotone" dataKey="progress" stroke="#2563eb" strokeWidth={2} dot={false} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex gap-2 mb-3">
+            <Button size="sm" variant="outline" className="flex-1" onClick={() => navigate("/nutrition-plans")}>
+              <Icons.UtensilsIcon className="mr-2 h-4 w-4" />
+              Nutritional Plan
+            </Button>
+            <Button size="sm" variant="outline" className="flex-1" onClick={() => navigate("/fitness-plans")}>
+              <Icons.DumbbellIcon className="mr-2 h-4 w-4" />
+              Fitness Plan
+            </Button>
+          </div>
+          <div className="flex gap-2">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex-1"
+              onClick={() => onEdit(client)}
+            >
+              <Icons.PencilIcon className="mr-2 h-4 w-4" />
+              Edit
+            </Button>
+            <Button 
+              size="sm" 
+              className="flex-1"
+              onClick={() => onViewProfile(client)}
+            >
+              <Icons.UserIcon className="mr-2 h-4 w-4" />
+              Profile
+            </Button>
+          </div>
+        </div>
+      </div>
     </Card>
   );
 };

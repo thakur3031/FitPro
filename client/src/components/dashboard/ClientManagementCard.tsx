@@ -30,6 +30,12 @@ const ClientManagementCard: React.FC<ClientManagementCardProps> = ({
   ],
   onManage 
 }) => {
+  const dummyClients = [
+    { name: "Sarah Johnson", status: "Active", email: "sarah.j@example.com", goal: 80 },
+    { name: "Tom Lee", status: "Inactive", email: "tom.lee@example.com", goal: 50 },
+    { name: "Emily Smith", status: "Active", email: "emily.smith@example.com", goal: 95 },
+  ];
+
   return (
     <Card className="bg-white dark:bg-slate-800 shadow-sm">
       <CardHeader className="pb-0">
@@ -97,6 +103,27 @@ const ClientManagementCard: React.FC<ClientManagementCardProps> = ({
         >
           Manage
         </Button>
+
+        <div className="grid grid-cols-1 gap-4 mt-4">
+          {dummyClients.map((client) => (
+            <div key={client.email} className="border rounded-lg p-4 bg-gray-50 dark:bg-slate-700">
+              <div className="font-semibold text-lg">{client.name}</div>
+              <div className="text-xs text-gray-500 mb-1">{client.email}</div>
+              <span className={`inline-block px-2 py-1 text-xs rounded mb-2 ${client.status === 'Active' ? 'bg-green-200 text-green-800' : 'bg-gray-300 text-gray-700'}`}>{client.status}</span>
+              <div className="mt-2 mb-2">
+                <div className="text-xs text-gray-400 mb-1">Goal Progress</div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                  <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${client.goal}%` }}></div>
+                </div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{client.goal}%</div>
+              </div>
+              <div className="flex gap-2 mt-2">
+                <Button size="sm" variant="outline">Nutritional Plan</Button>
+                <Button size="sm" variant="outline">Fitness Plan</Button>
+              </div>
+            </div>
+          ))}
+        </div>
       </CardContent>
     </Card>
   );

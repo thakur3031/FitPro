@@ -1,12 +1,14 @@
 import { Link, useRoute } from "wouter";
 import { cn } from "@/lib/utils";
 import * as Icons from "@/lib/icons";
+import React from "react";
 
 interface NavItem {
   name: string;
   href: string;
   icon: React.ReactNode;
   alert?: boolean;
+  children?: NavItem[];
 }
 
 const navigationItems: NavItem[] = [
@@ -22,19 +24,21 @@ const navigationItems: NavItem[] = [
     icon: <Icons.UsersIcon className="h-5 w-5" />,
   },
   {
-    name: "Nutrition Plans",
-    href: "/nutrition-plans",
-    icon: <Icons.UtensilsIcon className="h-5 w-5" />,
-  },
-  {
-    name: "Fitness Plans",
-    href: "/fitness-plans",
-    icon: <Icons.DumbbellIcon className="h-5 w-5" />,
-  },
-  {
     name: "Plan Library",
     href: "/plans",
     icon: <Icons.ClipboardIcon className="h-5 w-5" />,
+    children: [
+      {
+        name: "Nutrition Plans",
+        href: "/nutrition-plans",
+        icon: <Icons.UtensilsIcon className="h-4 w-4" />,
+      },
+      {
+        name: "Fitness Plans",
+        href: "/fitness-plans",
+        icon: <Icons.DumbbellIcon className="h-4 w-4" />,
+      },
+    ],
   },
   {
     name: "Notes & Logs",
@@ -91,6 +95,7 @@ const Sidebar: React.FC = () => {
                 href={item.href}
                 icon={item.icon}
                 name={item.name}
+                children={item.children}
               />
             ))}
           </ul>
@@ -121,17 +126,25 @@ interface NavItemProps {
   icon: React.ReactNode;
   name: string;
   alert?: boolean;
+  children?: NavItem[];
 }
 
-const NavItem: React.FC<NavItemProps> = ({ href, icon, name, alert }) => {
+const NavItem: React.FC<NavItemProps> = ({ href, icon, name, alert, children }) => {
   const [isActive] = useRoute(href === "/" ? href : `${href}/*`);
+  const [open, setOpen] = React.useState(false);
+
+  const hasChildren = children && children.length > 0;
 
   return (
-    <li>
+    <li
+      className={hasChildren ? "relative group" : undefined}
+      onMouseEnter={() => hasChildren && setOpen(true)}
+      onMouseLeave={() => hasChildren && setOpen(false)}
+    >
       <Link href={href}>
         <div
           className={cn(
-            "flex items-center px-3 py-3 rounded-lg transition",
+            "flex items-center px-3 py-3 rounded-lg transition cursor-pointer",
             isActive
               ? "bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium"
               : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700"
@@ -143,9 +156,32 @@ const NavItem: React.FC<NavItemProps> = ({ href, icon, name, alert }) => {
               <span className="absolute top-0 right-0 w-3 h-3 bg-rose-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
             )}
           </span>
-          <span className="hidden md:inline ml-3">{name}</span>
+          <span className="hidden md:inline ml-3 flex-1">{name}</span>
+          {hasChildren && (
+            <span className="ml-2 hidden md:inline">
+              <svg className={cn("w-4 h-4 transition-transform", open ? "rotate-90" : "")} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </span>
+          )}
         </div>
       </Link>
+      {/* Dropdown sub-menu */}
+      {hasChildren && (
+        <ul className={cn(
+          "w-full bg-white dark:bg-slate-800 shadow-lg rounded-lg py-2 space-y-1 z-40 transition-all duration-200 origin-top",
+          "md:ml-8 md:mt-1",
+          open ? "opacity-100 max-h-[200px]" : "opacity-0 max-h-0 overflow-hidden"
+        )}>
+          {children.map((child) => (
+            <NavItem
+              key={child.name}
+              href={child.href}
+              icon={child.icon}
+              name={child.name}
+              alert={child.alert}
+            />
+          ))}
+        </ul>
+      )}
     </li>
   );
 };

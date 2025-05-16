@@ -53,6 +53,12 @@ const Clients: React.FC = () => {
     });
   };
 
+  const dummyClients = [
+    { id: 1, name: "Sarah Johnson", isActive: true, email: "sarah.j@example.com", goals: "Lose weight", createdAt: new Date().toISOString() },
+    { id: 2, name: "Tom Lee", isActive: false, email: "tom.lee@example.com", goals: "Build muscle", createdAt: new Date().toISOString() },
+    { id: 3, name: "Emily Smith", isActive: true, email: "emily.smith@example.com", goals: "Improve flexibility", createdAt: new Date().toISOString() },
+  ];
+
   return (
     <div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
@@ -95,29 +101,26 @@ const Clients: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12">
-          {clients && clients.length > 0 ? (
-            <div>
-              <Icons.SearchXIcon className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-lg font-semibold">No results found</h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Try adjusting your search query.
-              </p>
-            </div>
-          ) : (
-            <div>
-              <Icons.UsersIcon className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-lg font-semibold">No clients yet</h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">
-                Get started by adding your first client.
-              </p>
-              <Button onClick={handleAddNew}>
-                <Icons.PlusIcon className="h-4 w-4 mr-2" />
-                Add Client
-              </Button>
-            </div>
-          )}
-        </div>
+        clients && clients.length > 0 ? (
+          <div>
+            <Icons.SearchXIcon className="mx-auto h-12 w-12 text-gray-400" />
+            <h3 className="mt-2 text-lg font-semibold">No results found</h3>
+            <p className="text-gray-500 dark:text-gray-400">
+              Try adjusting your search query.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {dummyClients.map((client) => (
+              <ClientCard
+                key={client.id}
+                client={client as any}
+                onEdit={() => {}}
+                onViewProfile={() => {}}
+              />
+            ))}
+          </div>
+        )
       )}
 
       {/* Client Profile Modal */}

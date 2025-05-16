@@ -10,6 +10,7 @@ import ClientDetailPanel from "@/components/dashboard/ClientDetailPanel";
 import SlidingPanel from "@/components/layout/SlidingPanel";
 import * as Icons from "@/lib/icons";
 import { useLocation } from "wouter";
+import AverageClientScoreCard from "@/components/dashboard/AverageClientScoreCard";
 
 // Sample client data
 const sampleClient = {
@@ -112,9 +113,9 @@ const Dashboard: React.FC = () => {
         />
         
         <StatCard 
-          title="Client satisfaction" 
-          value="Excellent" 
-          icon={<Icons.ThumbsUpIcon className="h-5 w-5 text-green-500 dark:text-green-400" />}
+          title="Daily Check-ins" 
+          value="15" 
+          icon={<Icons.CheckIcon className="h-5 w-5 text-green-500 dark:text-green-400" />}
           variant="success"
         />
         
@@ -131,17 +132,12 @@ const Dashboard: React.FC = () => {
         <div className="lg:col-span-2">
           <UpcomingWeekAppointments />
         </div>
-        <SleepAnalysisCard />
+        <AverageClientScoreCard />
       </div>
       
-      {/* Client Management */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div className="lg:col-span-2">
-          <NutritionOverviewCard />
-        </div>
-        <ClientManagementCard 
-          onManage={() => navigate("/clients")}
-        />
+      {/* Nutrition Overview */}
+      <div className="mb-6">
+        <NutritionOverviewCard />
       </div>
       
       {/* Sliding Panel for Client Details */}
