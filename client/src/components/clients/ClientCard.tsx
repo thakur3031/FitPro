@@ -1,19 +1,20 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import * as Icons from "@/lib/icons";
-import { Client } from "@shared/schema";
+import { MappedClient } from "@/hooks/use-clients";
 import { useLocation } from "wouter";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 interface ClientCardProps {
-  client: Client;
-  onEdit: (client: Client) => void;
-  onViewProfile: (client: Client) => void;
+  client: MappedClient;
+  onEdit: (client: MappedClient) => void;
+  onViewProfile: (client: MappedClient) => void;
 }
 
 const ClientCard: React.FC<ClientCardProps> = ({ client, onEdit, onViewProfile }) => {
   const [, navigate] = useLocation();
+  
   // Dummy progress data for the line graph
   const progressData = [
     { week: "W1", progress: 10 },
@@ -22,6 +23,7 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, onEdit, onViewProfile }
     { week: "W4", progress: 70 },
     { week: "W5", progress: 90 },
   ];
+
   return (
     <Card className="overflow-visible group relative">
       <CardContent className="p-0">
@@ -49,11 +51,15 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, onEdit, onViewProfile }
                 </Badge>
               </div>
               
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{client.email}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                {client.email} {client.username ? `• ${client.username}` : ""}
+              </p>
               
-              {client.goals && (
-                <p className="text-sm line-clamp-2">{client.goals}</p>
-              )}
+              <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                <p>Height: {client.height ?? "-"}cm • Weight: {client.weight ?? "-"}kg</p>
+                <p>DOB: {client.dob ? new Date(client.dob).toLocaleDateString() : "-"}</p>
+                {client.phone && <p>Phone: {client.phone}</p>}
+              </div>
             </div>
           </div>
         </div>
@@ -104,7 +110,7 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, onEdit, onViewProfile }
             <Button 
               size="sm" 
               className="flex-1"
-              onClick={() => onViewProfile(client)}
+              onClick={() => navigate(`/client/${client.client_id}`)}
             >
               <Icons.UserIcon className="mr-2 h-4 w-4" />
               Profile

@@ -35,6 +35,12 @@ import {
   Brain,
   Torus,
   Phone,
+  Sparkles,
+  Save,
+  ChevronLeft,
+  ChevronRight,
+  AlertTriangle,
+  Loader2 as Loader,
   PaperclipIcon as Paperclip,
   CheckIcon as CheckMark,
   XIcon as X
@@ -79,3 +85,9 @@ export const ToothIcon = Torus;
 export const PaperclipIcon = Paperclip;
 export const XIcon = X;
 export const PhoneIcon = Phone;
+export const SparklesIcon = Sparkles;
+export const SaveIcon = Save;
+export const ChevronLeftIcon = ChevronLeft;
+export const ChevronRightIcon = ChevronRight;
+export const AlertTriangleIcon = AlertTriangle;
+export const LoaderIcon = Loader;

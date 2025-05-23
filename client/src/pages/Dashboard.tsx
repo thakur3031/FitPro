@@ -11,6 +11,7 @@ import SlidingPanel from "@/components/layout/SlidingPanel";
 import * as Icons from "@/lib/icons";
 import { useLocation } from "wouter";
 import AverageClientScoreCard from "@/components/dashboard/AverageClientScoreCard";
+import { SupabaseTest } from "@/components/SupabaseTest";
 
 // Sample client data
 const sampleClient = {
@@ -97,6 +98,11 @@ const Dashboard: React.FC = () => {
   return (
     <div>
       <WelcomeCard />
+      
+      {/* Supabase Connection Test */}
+      <div className="mb-6">
+        <SupabaseTest />
+      </div>
       
       {/* Recommended Actions */}
       <div className="mb-6">

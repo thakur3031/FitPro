@@ -1,0 +1,111 @@
+.dashboard-container {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.dashboard-main {
+  flex: 2;
+}
+.dashboard-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.metrics-section {
+  margin-bottom: 2rem;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.metric-label {
+  font-size: 0.9rem;
+  color: #888;
+}
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.metric-change {
+  font-size: 0.8rem;
+  color: #e57373;
+}
+.schedule-section {
+  margin-top: 2rem;
+}
+.schedule-grid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.schedule-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #f7f7f7;
+  font-weight: bold;
+  text-align: center;
+}
+.schedule-day-header {
+  padding: 0.5rem 0;
+  border-right: 1px solid #eee;
+}
+.schedule-day-header:last-child {
+  border-right: none;
+}
+.schedule-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  min-height: 120px;
+}
+.schedule-day-cell {
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem;
+  min-height: 100px;
+  background: #fff;
+}
+.schedule-day-cell:last-child {
+  border-right: none;
+}
+.no-session {
+  color: #bbb;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.workout-session {
+  background: #e3f2fd;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.notes-section, .injuries-section, .progress-section {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.progress-photos {
+  display: flex;
+  gap: 0.5rem;
+}
+.progress-photo img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+.photo-date {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #888;
+}
+.note-date {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-left: 0.5rem;
+} 
