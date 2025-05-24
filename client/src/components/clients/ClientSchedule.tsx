@@ -132,20 +132,20 @@ export function ClientSchedule({ clientId }: { clientId: number }) {
                     </div>
                     <div className="text-xs text-gray-400 mb-1 flex items-center gap-1 font-semibold">
                       <span className="ml-auto">{format(date, "d MMM")}</span>
-                    </div>
+              </div>
                     {dayData.length === 0 && (
                       <div className="text-xs text-gray-300 mt-4 text-center">No Session</div>
-                    )}
+              )}
                     {dayData.map((session: any, i: number) => (
-                      <div key={i} className="bg-blue-50 rounded p-2 text-blue-900 border border-blue-200">
-                        <div className="font-semibold text-blue-600 text-xs truncate mb-1">{session.workout_name}</div>
-                        <ul className="text-xs">
-                          {session.exercises && session.exercises.map((ex: any, j: number) => (
-                            <li key={j}>{ex.name} {ex.sets}x{ex.reps}</li>
-                          ))}
-                        </ul>
-                      </div>
+                <div key={i} className="bg-blue-50 rounded p-2 text-blue-900 border border-blue-200">
+                  <div className="font-semibold text-blue-600 text-xs truncate mb-1">{session.workout_name}</div>
+                  <ul className="text-xs">
+                    {session.exercises && session.exercises.map((ex: any, j: number) => (
+                      <li key={j}>{ex.name} {ex.sets}x{ex.reps}</li>
                     ))}
+                  </ul>
+                </div>
+              ))}
                   </div>
                 );
               })}

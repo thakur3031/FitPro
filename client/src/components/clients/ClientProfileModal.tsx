@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Client, ClientPlan, Plan } from "@shared/schema";
 import * as Icons from "@/lib/icons";
 import { useClients } from "@/hooks/use-clients";
+import { useLocation } from "wouter";
 
 interface ClientProfileModalProps {
   client: Client | null;
@@ -25,15 +26,11 @@ const ClientProfileModal: React.FC<ClientProfileModalProps> = ({
   open,
   onClose,
 }) => {
-  const { archiveClient, deleteClient } = useClients();
+  const { deleteClient } = useClients();
   const [activeTab, setActiveTab] = useState("details");
+  const [, navigate] = useLocation();
 
   if (!client) return null;
-
-  const handleArchive = async () => {
-    await archiveClient.mutateAsync(client.id);
-    onClose();
-  };
 
   const handleDelete = async () => {
     await deleteClient.mutateAsync(client.id);
@@ -132,23 +129,21 @@ const ClientProfileModal: React.FC<ClientProfileModalProps> = ({
         <DialogFooter className="flex justify-between gap-2 pt-4 border-t border-gray-200 dark:border-gray-700">
           <div className="flex space-x-2">
             <Button
-              variant="outline"
-              onClick={handleArchive}
-              disabled={archiveClient.isPending}
-            >
-              {client.isActive ? "Archive client" : "Unarchive client"}
-            </Button>
-            <Button
               variant="destructive"
               onClick={handleDelete}
-              disabled={deleteClient.isPending}
+              disabled={!!deleteClient && !!deleteClient.isPending ? deleteClient.isPending : false}
             >
               Delete client
             </Button>
           </div>
-          <Button variant="default" onClick={onClose}>
-            Close
-          </Button>
+          <div className="flex gap-2">
+            <Button variant="secondary" onClick={() => navigate(`/client/${client.id}`)}>
+              View Full Profile
+            </Button>
+            <Button variant="default" onClick={onClose}>
+              Close
+            </Button>
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>
