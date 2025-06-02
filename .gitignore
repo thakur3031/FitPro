@@ -4,3 +4,9 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Environment variables
+.env
+.env.local
+frontend/.env.local # Specifically for frontend, if needed
+# Add other specific .env files if necessary, e.g. .env.development, .env.production

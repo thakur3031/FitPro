@@ -1,0 +1,89 @@
+.goal-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  font-family: Arial, sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.goal-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.goal-description {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0;
+  font-weight: bold;
+}
+
+.goal-status-badge {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+/* Status specific styles */
+.status-pending, .status-in-progress { background-color: #007bff; } /* Blue for active goals */
+.status-achieved { background-color: #28a745; } /* Green for achieved */
+.status-not-achieved, .status-on-hold { background-color: #ffc107; color: #212529;} /* Yellow for paused/not achieved */
+.status-cancelled { background-color: #dc3545; } /* Red for cancelled */
+
+
+.goal-details p {
+  margin: 5px 0;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.goal-target, .goal-current {
+  font-weight: 500;
+}
+
+.goal-target-date {
+  font-style: italic;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.goal-progress-bar-container {
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+  height: 20px; /* Height of the progress bar */
+  margin-top: 10px;
+  overflow: hidden; /* Ensures the inner bar stays within rounded corners */
+}
+
+.goal-progress-bar {
+  background-color: #28a745; /* Green for progress */
+  height: 100%;
+  line-height: 20px; /* Vertically center text */
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: bold;
+  transition: width 0.5s ease-in-out;
+  white-space: nowrap;
+}
+.goal-progress-bar.achieved {
+  background-color: #28a745; /* Ensure achieved is also green */
+}
+
+/* Example: if a goal type dictates a different progress bar color */
+.goal-item.type-weight-loss .goal-progress-bar {
+  background-color: #17a2b8; /* Info Blue for specific types */
+}

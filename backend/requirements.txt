@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+psycopg2-binary
+python-dotenv
+Flask-Bcrypt  # For hashing passwords
+Flask-JWT-Extended # For JWT authentication
