@@ -1,0 +1,126 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  background-color: #333;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.logout-button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-main-content {
+  flex-grow: 1;
+  padding: 30px; /* Increased padding */
+  background-color: #f4f7f6; /* Slightly different background */
+  text-align: center; /* Center content */
+}
+
+.dashboard-main-content h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.7em;
+}
+
+.dashboard-main-content p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-actions {
+  display: flex;
+  justify-content: center; /* Center cards */
+  gap: 20px; /* Space between cards */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.action-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px; /* Max width for each card */
+  text-align: left; /* Align text to left within card */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.action-card h3 {
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.action-card p {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 20px; /* Space before the button */
+  line-height: 1.6;
+}
+
+.btn { /* General button styling from other CSS, ensure consistency or define here */
+  padding: 10px 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Allow margin and padding */
+  text-align: center;
+}
+
+.btn-primary { /* Specific for action card buttons */
+  background-color: #007bff;
+  color: white;
+  width: 100%; /* Make button full width of card */
+  box-sizing: border-box; /* Ensure padding doesn't expand width */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.dashboard-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0; /* Increased padding */
+  font-size: 0.9em;
+}

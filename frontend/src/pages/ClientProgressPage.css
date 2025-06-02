@@ -1,0 +1,86 @@
+.client-progress-page-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 1000px; /* Allow wider content for charts */
+  margin: 20px auto;
+  background-color: #f9f9f9; /* Light background for the page */
+  border-radius: 8px;
+}
+
+.progress-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.progress-header h1 {
+  color: #333;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.charts-section, .goals-section {
+  margin-bottom: 35px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.charts-section h2, .goals-section h2 {
+  font-size: 1.7em;
+  color: #007bff; /* Blue for section titles */
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Reusable chart container styling (if not handled by MeasurementChart.js directly) */
+.chart-container-wrapper { /* If you wrap MeasurementChart for specific layout */
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+}
+
+.goals-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Messages */
+.loading-message, .info-message {
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 1.15em;
+  color: #555;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-top: 10px; /* Space if multiple messages appear */
+}
+
+.error-message.page-error { /* For page-level errors */
+  color: #D8000C;
+  background-color: #FFD2D2;
+  border: 1px solid #D8000C;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .client-progress-page-container {
+    padding: 15px;
+  }
+  .progress-header h1 {
+    font-size: 1.8em;
+  }
+  .charts-section h2, .goals-section h2 {
+    font-size: 1.5em;
+  }
+}

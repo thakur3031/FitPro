@@ -1,0 +1,73 @@
+.schedule-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s ease-in-out;
+  font-family: Arial, sans-serif;
+}
+
+.schedule-item:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-type-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+
+.item-type-appointment { background-color: #007bff; } /* Blue */
+.item-type-nutrition { background-color: #28a745; } /* Green */
+.item-type-fitness { background-color: #ffc107; color: #212529; } /* Yellow */
+.item-type-default { background-color: #6c757d; } /* Grey */
+
+.item-title {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0;
+}
+
+.item-body p {
+  margin: 4px 0;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.item-time {
+  font-weight: bold;
+  color: #444;
+}
+
+.item-description {
+  color: #666;
+}
+
+.item-meta {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.item-meta .status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.status-scheduled { color: #007bff; }
+.status-completed { color: #28a745; }
+.status-cancelled { color: #dc3545; }
+.status-pending { color: #ffc107; }
+/* Add more status colors as needed */
