@@ -1,77 +1,122 @@
-.client-schedule-page-container {
-  padding: 20px;
+/* ClientSchedulePage.css */
+
+/* Ensure FullCalendar's own CSS is imported.
+   This can be done in ClientSchedulePage.js or globally in App.js/index.js
+   e.g., import '@fullcalendar/core/main.css'; (or common/main.css)
+          import '@fullcalendar/daygrid/main.css';
+          import '@fullcalendar/timegrid/main.css';
+          import '@fullcalendar/list/main.css';
+*/
+
+.client-schedule-page-container.fullcalendar-container {
+  padding: 15px; /* Adjusted padding */
   font-family: Arial, sans-serif;
-  max-width: 950px;
+  max-width: 1100px; /* Wider for calendar view */
   margin: 20px auto;
-  background-color: #f4f7f6; /* Light background for the page */
+  background-color: #fff; /* White background for the calendar page */
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  box-shadow: 0 0 20px rgba(0,0,0,0.08);
 }
 
 .schedule-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .schedule-header h1 {
   color: #333;
-  font-size: 2.2em;
+  font-size: 2em; /* Slightly reduced */
   font-weight: bold;
 }
 
-.schedule-group {
-  margin-bottom: 30px;
-  padding: 15px;
-  background-color: #fff; /* White background for each group */
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+/* FullCalendar specific overrides and custom event styling */
+/* Ensure these selectors are specific enough to override default FullCalendar styles if needed */
+
+/* Example: Customizing event colors based on item_type (via className) */
+.fc-event.fc-event-appointment {
+  background-color: #007bff; /* Blue for appointments */
+  border-color: #0056b3;
+}
+.fc-event.fc-event-appointment .fc-event-title { /* Ensure title is readable */
+  color: #fff;
 }
 
-.group-title {
-  font-size: 1.5em;
-  color: #007bff; /* Blue for date/group titles */
-  margin-top: 0;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #007bff;
+.fc-event.fc-event-fitness {
+  background-color: #28a745; /* Green for fitness */
+  border-color: #1e7e34;
+}
+.fc-event.fc-event-fitness .fc-event-title {
+  color: #fff;
 }
 
-.schedule-items-list {
-  list-style-type: none;
-  padding: 0;
+.fc-event.fc-event-nutrition {
+  background-color: #ffc107; /* Yellow for nutrition */
+  border-color: #d39e00;
+  color: #212529; /* Darker text for yellow background */
+}
+.fc-event.fc-event-nutrition .fc-event-title {
+  color: #212529;
+}
+.fc-event.fc-event-nutrition .fc-event-mealtype { /* Custom class from renderEventContent */
+    font-size: 0.8em;
+    margin-left: 5px;
+    opacity: 0.9;
 }
 
-/* Messages */
-.loading-message, .info-message {
+
+/* General event styling for better text visibility if not using specific classes */
+.fc-event {
+  cursor: pointer; /* Indicate events are clickable (for future eventClick) */
+}
+.fc-event .fc-event-main { /* Ensure text is readable */
+  color: #fff; /* Default to white, can be overridden by specific types */
+}
+.fc-daygrid-event .fc-event-title, /* For month view */
+.fc-timegrid-event .fc-event-title, /* For timegrid views */
+.fc-list-event .fc-event-title {   /* For list view */
+  /* Common title styling if needed */
+}
+
+
+/* Loading and Error messages (if FullCalendar doesn't have its own prominent ones) */
+.client-schedule-page-container .loading-message,
+.client-schedule-page-container .info-message {
   text-align: center;
-  padding: 30px 20px;
-  font-size: 1.2em;
+  padding: 20px;
+  font-size: 1.1em;
   color: #555;
-  background-color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.error-message.page-error { /* For page-level errors */
+.client-schedule-page-container .error-message.page-error {
   color: #D8000C;
   background-color: #FFD2D2;
   border: 1px solid #D8000C;
-  padding: 15px;
-  border-radius: 6px;
-  margin: 20px 0;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 15px 0;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
-/* Responsive adjustments if needed */
+/* Adjust FullCalendar's toolbar button styles if needed */
+.fc .fc-button {
+  /* Example: text-transform: capitalize; */
+}
+
+/* Responsive adjustments for FullCalendar if default is not sufficient */
 @media (max-width: 768px) {
-  .client-schedule-page-container {
-    padding: 15px;
+  .client-schedule-page-container.fullcalendar-container {
+    padding: 10px;
   }
   .schedule-header h1 {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
-  .group-title {
-    font-size: 1.3em;
+  .fc .fc-toolbar.fc-header-toolbar {
+    font-size: 0.85em; /* Smaller toolbar text */
+    flex-direction: column; /* Stack toolbar sections */
+    gap: 5px;
+  }
+  .fc .fc-toolbar-chunk {
+    margin-bottom: 5px;
   }
 }

@@ -11,7 +11,8 @@ import ClientDetailPage from './pages/ClientDetailPage';
 import EditClientPage from './pages/EditClientPage';
 import TrainerSchedulePage from './pages/TrainerSchedulePage';
 import ClientSchedulePage from './pages/ClientSchedulePage';
-import ClientProgressPage from './pages/ClientProgressPage'; // Import ClientProgressPage
+import ClientProgressPage from './pages/ClientProgressPage';
+import TrainerFitnessPlanPage from './pages/TrainerFitnessPlanPage'; // Import TrainerFitnessPlanPage
 // import NotFoundPage from './pages/NotFoundPage'; // Optional
 
 // Component Imports
@@ -35,7 +36,8 @@ function App() { // Renamed AppRevised to App
           <Route path="clients/:clientId/edit" element={<EditClientPage />} />
           <Route path="trainer-schedule" element={<TrainerSchedulePage />} />
           <Route path="my-schedule" element={<ClientSchedulePage />} />
-          <Route path="my-progress" element={<ClientProgressPage />} /> {/* Add ClientProgressPage route */}
+          <Route path="my-progress" element={<ClientProgressPage />} />
+          <Route path="trainer/fitness-plans" element={<TrainerFitnessPlanPage />} /> {/* Add TrainerFitnessPlanPage route */}
 
           {/* Example for a NotFoundPage within protected routes */}
           {/* <Route path="*" element={<NotFoundPage />} /> */}

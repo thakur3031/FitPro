@@ -1,0 +1,91 @@
+/* PlanTemplateList.css */
+.plan-template-list-container {
+  /* Max height and overflow for scrollability within its panel section */
+  max-height: 250px; /* Adjust as needed */
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #fdfdfd; /* Slightly off-white */
+}
+
+.plan-template-list-container .list-error {
+  font-size: 0.9em;
+  padding: 8px;
+}
+
+.plan-templates-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.template-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent; /* For smooth hover/selected border */
+}
+
+.template-list-item:hover {
+  background-color: #e9ecef; /* Light hover effect */
+  border-color: #ced4da;
+}
+
+.template-list-item.selected {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: white;
+  border-color: #0056b3;
+}
+.template-list-item.selected .template-name {
+  font-weight: bold;
+}
+.template-list-item.selected .btn-delete-template-xs {
+  background-color: #fff;
+  color: #dc3545; /* Red text on white background for selected item */
+  border: 1px solid #dc3545;
+}
+.template-list-item.selected .btn-delete-template-xs:hover {
+  background-color: #f8d7da; /* Light red hover */
+}
+
+
+.template-name {
+  font-size: 0.95em;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.template-list-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-delete-template-xs {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 0.75em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-delete-template-xs:hover {
+  background-color: #c82333;
+}
+
+.plan-template-list-container p { /* For loading or empty messages */
+  font-size: 0.9em;
+  color: #555;
+  padding: 10px;
+  text-align: center;
+}

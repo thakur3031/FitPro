@@ -1,0 +1,97 @@
+.fitness-plan-page-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); /* Adjust 60px if you have a fixed navbar of different height */
+  font-family: Arial, sans-serif;
+  padding: 0; /* Remove padding if header is full width */
+  margin: 0; /* Remove margin if header is full width */
+}
+
+.fitness-plan-header {
+  background-color: #007bff; /* Example header color */
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* width: 100%; */ /* Ensure it spans full width if container has padding */
+}
+
+.fitness-plan-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.fitness-plan-main-content {
+  display: flex;
+  flex-grow: 1; /* Allows this section to take up remaining vertical space */
+  overflow: hidden; /* Prevent scrollbars on the main content if panels handle their own scroll */
+}
+
+.left-panel {
+  width: 40%; /* Adjust as needed */
+  background-color: #f8f9fa; /* Light grey background for left panel */
+  padding: 20px;
+  border-right: 1px solid #dee2e6; /* Separator line */
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+.right-panel {
+  width: 60%; /* Adjust as needed */
+  background-color: #ffffff; /* White background for right panel */
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+.left-panel h2, .right-panel h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.placeholder-text {
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Medium devices (tablets, less than 992px) */
+  .left-panel {
+    width: 45%;
+  }
+  .right-panel {
+    width: 55%;
+  }
+}
+
+@media (max-width: 768px) { /* Small devices (landscape phones, less than 768px) */
+  .fitness-plan-main-content {
+    flex-direction: column; /* Stack panels vertically */
+    overflow: auto; /* Allow main content to scroll if needed */
+  }
+  .left-panel, .right-panel {
+    width: 100%; /* Full width for stacked panels */
+    border-right: none; /* Remove vertical separator */
+    border-bottom: 1px solid #dee2e6; /* Add horizontal separator */
+    max-height: 50vh; /* Example max height for scrollable panels */
+  }
+  .left-panel:last-child, .right-panel:last-child {
+    border-bottom: none; /* Remove border for the last panel */
+  }
+}
+
+@media (max-width: 576px) { /* Extra small devices (portrait phones, less than 576px) */
+  .fitness-plan-header h1 {
+    font-size: 1.5em;
+  }
+  .left-panel h2, .right-panel h2 {
+    font-size: 1.3em;
+  }
+  .left-panel, .right-panel {
+    padding: 15px;
+  }
+}
