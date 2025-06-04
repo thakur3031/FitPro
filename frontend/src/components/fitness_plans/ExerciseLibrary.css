@@ -1,0 +1,204 @@
+/* ExerciseLibrary.css */
+.exercise-library-container {
+  padding: 15px;
+  background-color: #fff; /* White background for the library section itself */
+  border-radius: 6px;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */ /* Optional: if not already in a panel with shadow */
+}
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.library-header h3 {
+  margin: 0;
+  font-size: 1.3em;
+  color: #333;
+}
+
+.btn-add-template {
+  background-color: #17a2b8; /* Info Blue */
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.9em;
+}
+.btn-add-template:hover {
+  background-color: #138496;
+}
+
+/* Basic Modal Simulation for Form */
+.form-modal-backdrop-el { /* Suffix -el for Exercise Library to avoid conflicts */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Higher than other elements */
+}
+
+.form-modal-content-el {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Exercise Template Form Styles */
+.exercise-template-form .form-group {
+  margin-bottom: 12px;
+}
+
+.exercise-template-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 0.9em;
+  color: #444;
+}
+
+.exercise-template-form input[type="text"],
+.exercise-template-form select,
+.exercise-template-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.95em;
+}
+
+.exercise-template-form textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+.exercise-template-form small {
+  display: block;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 3px;
+}
+
+.exercise-template-form .form-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.exercise-template-form .btn { /* General button styling */
+  padding: 8px 15px;
+  font-size: 0.9em;
+}
+
+
+/* Templates List Styles */
+.templates-list {
+  list-style-type: none;
+  padding: 0;
+  max-height: 400px; /* Example height, adjust as needed */
+  overflow-y: auto;
+}
+
+.template-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.template-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* Small gap between info lines */
+}
+
+.template-info strong {
+  font-size: 1.05em;
+  color: #0056b3;
+}
+
+.template-info span {
+  font-size: 0.85em;
+  color: #555;
+}
+
+.template-params-details summary {
+  font-size: 0.85em;
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.template-params-details pre {
+  font-size: 0.8em;
+  background-color: #e9ecef;
+  padding: 5px;
+  border-radius: 3px;
+  white-space: pre-wrap; /* Wrap long JSON */
+  word-break: break-all;
+  margin-top: 3px;
+}
+
+.template-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center; /* Align buttons nicely if they wrap or have different heights */
+}
+.btn-edit-xs, .btn-delete-xs, .btn-add-to-plan-xs { /* Smaller buttons for list items */
+  padding: 5px 8px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-add-to-plan-xs {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+.btn-add-to-plan-xs:hover {
+  background-color: #218838;
+}
+
+.btn-edit-xs {
+  background-color: #ffc107; /* Yellow */
+  color: #212529;
+}
+.btn-edit-xs:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete-xs {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+.btn-delete-xs:hover {
+  background-color: #c82333;
+}
+
+/* Error messages */
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+.error-message.page-error { /* For errors above the list/form */
+  margin-bottom: 15px;
+}

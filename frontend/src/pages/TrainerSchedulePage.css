@@ -1,0 +1,164 @@
+.schedule-page-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.schedule-header h1 {
+  color: #333;
+  font-size: 2em;
+}
+
+.btn { /* General button styling, ensure consistency or define more specifically */
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-add-appointment {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+.btn-add-appointment:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Modal Simulation Styles */
+.form-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.form-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 550px; /* Max width of the modal content */
+  max-height: 90vh; /* Max height */
+  overflow-y: auto; /* Scroll if content is too long */
+}
+
+/* Appointments List Styles */
+.appointments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.appointment-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.appointment-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.appointment-details h3 {
+  margin-top: 0;
+  color: #007bff; /* Blue title */
+  font-size: 1.4em;
+  margin-bottom: 8px;
+}
+
+.appointment-details p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+.appointment-details p strong {
+  color: #333;
+}
+
+.appointment-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit {
+  background-color: #ffc107; /* Yellow */
+  color: #212529;
+}
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Messages */
+.loading-message, .info-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.error-message.page-error { /* For page-level errors */
+  color: #D8000C;
+  background-color: #FFD2D2;
+  border: 1px solid #D8000C;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 600px) {
+  .schedule-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-add-appointment {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .form-modal-content {
+    width: 95%;
+  }
+  .appointment-actions {
+    flex-direction: column;
+  }
+  .appointment-actions .btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .appointment-actions .btn:last-child {
+    margin-bottom: 0;
+  }
+}

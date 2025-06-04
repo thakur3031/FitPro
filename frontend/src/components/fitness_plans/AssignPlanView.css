@@ -1,0 +1,80 @@
+/* AssignPlanView.css */
+.assign-plan-view-container {
+  padding: 15px;
+  background-color: #fdfdff; /* Slightly different background for this panel section */
+  border-radius: 6px;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */ /* Optional if panel has shadow */
+}
+
+.assign-plan-view-container h4 {
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.assign-plan-form .form-group {
+  margin-bottom: 15px;
+}
+
+.assign-plan-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #444;
+}
+
+.assign-plan-form select,
+.assign-plan-form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.95em;
+  background-color: #fff; /* Ensure input backgrounds are white */
+}
+
+.assign-plan-form .btn-primary {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1em;
+  margin-top: 10px; /* Space above the button */
+}
+
+/* Messages */
+.assign-plan-view-container .error-message,
+.assign-plan-view-container .success-message,
+.assign-plan-view-container .info-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.assign-plan-view-container .error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.assign-plan-view-container .success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.assign-plan-view-container .info-message {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+}
+
+.assign-plan-view-container p { /* For loading messages or other info */
+    font-size: 0.9em;
+    color: #555;
+}

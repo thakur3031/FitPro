@@ -1,0 +1,28 @@
+.form-page-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-page-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+/* Page-level error messages (e.g., API call errors not specific to a form field) */
+.error-message.page-error {
+  color: #D8000C; /* Error red */
+  background-color: #FFD2D2; /* Light red background */
+  border: 1px solid #D8000C;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.95em;
+}

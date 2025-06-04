@@ -1,0 +1,112 @@
+.recommended-tasks-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-top: 25px; /* Add some space above this section */
+  font-family: Arial, sans-serif;
+}
+
+.tasks-title {
+  color: #333;
+  font-size: 1.6em;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #007bff; /* Accent color border */
+  padding-bottom: 8px;
+}
+
+.tasks-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out content and meta */
+  align-items: center; /* Align items vertically */
+  background-color: #f9f9f9;
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.task-content {
+  flex-grow: 1; /* Allow content to take up available space */
+}
+
+.task-item-title {
+  font-size: 1.15em;
+  color: #0056b3; /* Darker blue for title */
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.task-item-description {
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between meta items */
+  margin-left: 20px; /* Space between content and meta */
+  white-space: nowrap; /* Prevent wrapping of meta items */
+}
+
+.task-due-date {
+  font-size: 0.85em;
+  color: #777;
+  background-color: #e9ecef;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.task-priority-label {
+  font-size: 0.85em;
+  padding: 4px 10px;
+  border-radius: 12px; /* Pill shape */
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Priority specific styles */
+.task-priority-label.priority-high { background-color: #dc3545; } /* Red */
+.task-priority-label.priority-medium { background-color: #ffc107; color: #333; } /* Yellow */
+.task-priority-label.priority-low { background-color: #28a745; } /* Green */
+
+.task-checkbox {
+  margin-left: 10px; /* Space before checkbox if other meta items are present */
+  transform: scale(1.2); /* Make checkbox slightly larger */
+  cursor: pointer;
+}
+
+/* Styling for tasks based on priority (optional, for border or background) */
+.task-item.priority-high { border-left: 5px solid #dc3545; }
+.task-item.priority-medium { border-left: 5px solid #ffc107; }
+.task-item.priority-low { border-left: 5px solid #28a745; }
+
+@media (max-width: 768px) {
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to start on smaller screens */
+  }
+  .task-meta {
+    margin-left: 0;
+    margin-top: 10px; /* Add space above meta on small screens */
+    width: 100%;
+    justify-content: space-between; /* Spread out meta items */
+  }
+  .task-checkbox {
+    margin-left: auto; /* Push checkbox to the far right if alone in meta */
+  }
+}
