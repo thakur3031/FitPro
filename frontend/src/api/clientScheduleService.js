@@ -15,32 +15,38 @@ const getClientUserId = async () => {
  * The RPC is expected to be created in Supabase by the developer.
  *
  * Note: The RPC provided in the task description does not include date range parameters.
- * Filtering by date range would typically be done on the frontend after fetching all active plan items
- * or by modifying the RPC to accept date range parameters.
- * For this implementation, we fetch all relevant items and the frontend will handle grouping/sorting.
+ * Uses the new RPC function `get_client_calendar_events`.
+ * The RPC is expected to be created in Supabase by the developer.
+ *
+ * @param {string} startDate - The start of the date range (YYYY-MM-DD).
+ * @param {string} endDate - The end of the date range (YYYY-MM-DD).
  */
-const getClientScheduleData = async () => {
+const getClientCalendarEvents = async (startDate, endDate) => {
   const clientUserId = await getClientUserId();
 
-  const { data, error } = await supabase.rpc('get_client_schedule_details', {
+  if (!startDate || !endDate) {
+    throw new Error("Start date and end date are required to fetch calendar events.");
+  }
+
+  const { data, error } = await supabase.rpc('get_client_calendar_events', {
     p_client_user_id: clientUserId,
+    p_start_date: startDate,
+    p_end_date: endDate,
   });
 
   if (error) {
-    console.error('Error fetching client schedule data via RPC:', error);
+    console.error('Error fetching client calendar events via RPC:', error);
     throw error;
   }
 
-  // The RPC returns a flat list of items.
-  // Each item has an 'item_type' ('appointment', 'nutrition', 'fitness').
-  // Appointments have 'start_time' and 'end_time'.
-  // Nutrition/Fitness items have 'day_of_week' and might be considered "all-day" or for specific meal times.
-  // Further processing (sorting, grouping by date) will be needed on the frontend.
+  // The RPC returns a flat list of items formatted for FullCalendar:
+  // id, title, start_time, end_time, all_day, item_type, description, plan_name,
+  // meal_type, exercise_name, sets, reps, status
   return data || []; // Ensure an array is returned
 };
 
 const clientScheduleService = {
-  getClientScheduleData,
+  getClientCalendarEvents, // Renamed from getClientScheduleData
 };
 
 export default clientScheduleService;

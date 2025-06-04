@@ -1,0 +1,204 @@
+/* PlanBuilder.css */
+.plan-builder-container {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */
+}
+
+.plan-builder-container h3 { /* Title for the builder section */
+  font-size: 1.3em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.plan-metadata-form {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+}
+
+.plan-metadata-form .form-group {
+  margin-bottom: 10px;
+}
+.plan-metadata-form label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 3px;
+}
+.plan-metadata-form input[type="text"],
+.plan-metadata-form textarea,
+.plan-metadata-form input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.plan-metadata-form textarea {
+  min-height: 50px;
+}
+.plan-metadata-form .form-group-inline {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.plan-metadata-form .form-group-inline label {
+    margin-bottom: 0; /* Align with input */
+    white-space: nowrap;
+}
+.plan-metadata-form .form-group-inline input[type="number"] {
+    width: auto; /* Allow number inputs to shrink */
+    min-width: 60px;
+    flex-grow: 1;
+}
+
+
+.day-management {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f0f4f8; /* Light blueish background */
+  border-radius: 4px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.day-management input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  flex-grow: 1; /* Take available space */
+  min-width: 150px; /* Minimum width before wrapping */
+}
+.day-management select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  flex-grow: 1;
+  min-width: 150px;
+}
+.day-management small {
+  width: 100%; /* Take full width for the note */
+  font-size: 0.85em;
+  color: #555;
+}
+
+
+.plan-days-container {
+  display: flex;
+  flex-direction: column; /* Stack day columns vertically initially */
+  gap: 20px;
+  margin-bottom: 20px;
+  /* Consider horizontal scroll for many days if not using flex-wrap for columns */
+  /* overflow-x: auto; */
+}
+
+.plan-day-column {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  min-width: 250px; /* Minimum width for a day column */
+  /* flex: 1; */ /* If using horizontal layout for days */
+}
+
+.plan-day-column h4 {
+  font-size: 1.1em;
+  color: #0056b3;
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.empty-day-message {
+  font-size: 0.9em;
+  color: #777;
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+}
+
+.exercise-list-in-plan {
+  list-style-type: none;
+  padding: 0;
+}
+
+.exercise-item-in-plan {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+.exercise-item-in-plan h5 {
+  font-size: 1em;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+.exercise-item-in-plan p {
+  font-size: 0.8em;
+  color: #666;
+  margin: 2px 0;
+}
+.exercise-item-in-plan .form-group {
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+.exercise-item-in-plan .form-group label {
+  font-size: 0.85em;
+  font-weight: normal;
+  color: #555;
+  margin-bottom: 2px;
+}
+.exercise-item-in-plan textarea,
+.exercise-item-in-plan input[type="text"] {
+  font-size: 0.85em;
+  padding: 5px;
+  min-height: 30px; /* For textarea */
+}
+
+.btn-save-plan {
+  display: block; /* Make it full width or align as needed */
+  width: auto; /* Or 100% if desired */
+  padding: 10px 20px;
+  font-size: 1.1em;
+  margin-top: 10px; /* Space above save button */
+}
+
+.plan-builder-container .error-message { /* For errors within PlanBuilder */
+  font-size: 0.9em;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+/* Buttons (general, can be in a global CSS) */
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+.btn-primary { background-color: #007bff; color: white; }
+.btn-primary:hover { background-color: #0056b3; }
+.btn-secondary { background-color: #6c757d; color: white; }
+.btn-secondary:hover { background-color: #5a6268; }
+.btn-secondary.btn-sm { padding: 5px 10px; font-size: 0.8em; }
+
+.btn-delete-xs { /* From ExerciseLibrary, ensure consistency or define globally */
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+.btn-delete-xs:hover { background-color: #c82333; }
